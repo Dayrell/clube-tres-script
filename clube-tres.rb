@@ -41,7 +41,8 @@ def login(email, password)
     return agent
 end
 
-def fill_codes(email, password, codes)
+def fill_codes(email, password, codes, total)
+    num = 1
     codes.each do |st|
         
             agent = login(email, password)
@@ -55,7 +56,8 @@ def fill_codes(email, password, codes)
 
             home_page = code_form.submit
 
-            puts "Código submetido com sucesso: #{st}"
+            puts "Código #{num} de #{total} submetido com sucesso: #{st}"
+            num += 1
 
     end
 end
@@ -68,6 +70,6 @@ email = gets
 puts 'Digite sua senha'
 password = STDIN.noecho(&:gets)
 
-fill_codes(email, password, codes)
+fill_codes(email, password, codes, num)
 
 puts 'Concluído'

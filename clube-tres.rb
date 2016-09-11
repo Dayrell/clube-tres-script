@@ -3,6 +3,8 @@ require 'mechanize'
 require 'logger'
 require 'io/console'
 
+# Coloco os códigos num vetor
+
 def define_codes(codes)
     code = 1
     num = 0
@@ -20,6 +22,7 @@ def define_codes(codes)
     return num
 end
 
+# Faz o login no site do Clube Tres
 def login(email, password)
     @website = 'clube.escolhatres.com.br'
 
@@ -41,6 +44,7 @@ def login(email, password)
     return agent
 end
 
+# Preenche e envia todos os codigos
 def fill_codes(email, password, codes, total)
     num = 1
     codes.each do |st|
